@@ -111,9 +111,9 @@ def get_customer_type_and_subtype(text):
 # ============================================================
 st.set_page_config(page_title="Real Estate Miner", page_icon="🏢")
 st.title("🏢 Real Estate Data Miner")
-st.info("Excel upload karein. Agar 'caption' column hai toh Instagram mana jayega, aur 'text' hai toh Facebook.")
+st.info("UPLOAD EXCEL FILE")
 
-uploaded_file = st.file_uploader("Upload Excel File (Data sheet zaroori hai)", type=["xlsx"])
+uploaded_file = st.file_uploader("Upload Excel File", type=["xlsx"])
 
 # ============================================================
 # MAIN PROCESSING
@@ -121,9 +121,9 @@ uploaded_file = st.file_uploader("Upload Excel File (Data sheet zaroori hai)", t
 if uploaded_file:
     try:
         df_raw = pd.read_excel(uploaded_file, sheet_name='Data')
-        st.success(f"File Load Ho Gayi! Total {len(df_raw)} records mile.")
+        st.success(f"File Loading ! Total {len(df_raw)} records.")
 
-        if st.button("Mining Shuru Karein 🚀"):
+        if st.button("Start Mining 🚀"):
             current_date = datetime.now().strftime('%d-%m-%Y')
             rows = []
             bar = st.progress(0)
